@@ -58,23 +58,23 @@ public class CallNode {
 		visitor.exit(this);
 	}
 	
-	public void output(String decal) {
-		if (method != null) {
-			System.out.println(decal+" "+method.getDeclaringClass().getCanonicalName()+" in "+method.getName()+" calls = "+calls+" total duration = "+duration);
-		} else {
-			System.out.println("ROOT");
-		}
-	}
-
 	public CallNode enterChild(Method method) {
 		
 		CallNode child = null;
-		for (CallNode c: childs) {
-			if (c.isMethod(method)) {
-				child = c;
-				break;
+
+		if (!childs.isEmpty()) {
+			CallNode callNode = childs.get(childs.size()-1);
+			if (callNode.isMethod(method)) {
+				child = callNode;
 			}
 		}
+		
+//		for (CallNode c: childs) {
+//			if (c.isMethod(method)) {
+//				child = c;
+//				break;
+//			}
+//		}
 		if (child == null) {
 			child = new CallNode(this, method);
 			childs.add(child);
@@ -105,5 +105,26 @@ public class CallNode {
 
 	public CallNode getParent() {
 		return parent;
+	}
+
+
+
+	public Method method() {
+		return method;
+	}
+
+
+
+	public long totalDuration() {
+		return duration;
+	}
+
+
+	public long averageDuration() {
+		return duration / calls;
+	}
+
+	public int callsCount() {
+		return calls;
 	}
 }

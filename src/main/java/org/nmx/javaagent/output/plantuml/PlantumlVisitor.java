@@ -1,4 +1,4 @@
-package org.nmx.javaagent.plantuml;
+package org.nmx.javaagent.output.plantuml;
 
 import org.nmx.javaagent.tree.CallNode;
 import org.nmx.javaagent.tree.CallTree;
