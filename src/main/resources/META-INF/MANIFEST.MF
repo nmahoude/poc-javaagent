@@ -1,0 +1,4 @@
+Agent-Class: org.nmx.javaagent.agent.Agent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Premain-Class: org.nmx.javaagent.agent.Agent
