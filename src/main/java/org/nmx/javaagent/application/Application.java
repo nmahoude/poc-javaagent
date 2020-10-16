@@ -8,6 +8,8 @@ public class Application {
 		System.out.println("Starting");
 		app.inMethod1();
 		app.inMethod2();
+		app.inMethod2();
+		app.inMethod2();
 		System.out.println("Ending");
 	}
 
